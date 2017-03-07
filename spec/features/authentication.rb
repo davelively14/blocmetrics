@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'Authentication' do
   let(:email) { 'new_user@resurgens.io' }
   let(:password) { 'password' }
