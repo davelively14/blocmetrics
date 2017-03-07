@@ -5,8 +5,8 @@ feature 'Authentication' do
   let(:password) { 'password' }
 
   scenario "sign in with correct credentials" do
-    pending
     create(:user, email: email, password: password, password_confirmation: password)
+    pending
     visit(new_user_session_path)
     fill_in 'Email', with: email
     fill_in 'Password', with: password
