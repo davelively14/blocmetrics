@@ -114,4 +114,21 @@ RSpec.feature 'Authentication', type: :feature do
     expect(page).to have_content('Your password has been changed successfully. You are now signed in.')
     expect(current_path).to eq(root_path)
   end
+
+  scenario "edit username" do
+    visit(root_path)
+    click_on 'Sign in'
+    fill_in 'Email', with: email
+    fill_in 'Password', with: password
+    click_button 'Sign in'
+    expect(page).to have_content('Signed in successfully.')
+    expect(current_path).to eq(root_path)
+    click_on username
+    expect(current_path).to eq(edit_user_registration_path)
+    fill_in 'Username', with: 'even_newer_user'
+    fill_in 'Current password', with: password
+    click_button 'Update'
+    expect(page).to have_content('Your account has been updated successfully.')
+    expect(page).to have_content('even_newer_user')
+  end
 end
