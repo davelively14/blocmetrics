@@ -6,6 +6,7 @@ RSpec.feature 'Authentication', type: :feature do
 
   before do
     create(:user, email: email, password: password, password_confirmation: password)
+    clear_emails
   end
 
   scenario "sign in with correct credentials" do
@@ -67,5 +68,23 @@ RSpec.feature 'Authentication', type: :feature do
     fill_in 'Password confirmation', with: 'pass'
     click_button 'Sign up'
     expect(page).to have_content('Password is too short')
+  end
+
+  scenario "reset password" do
+    visit(root_path)
+    click_on 'Sign in'
+    click_on 'Forgot your password?'
+    expect(current_path).to eq(new_user_password_path)
+    fill_in 'Email', with: email
+    click_button 'Send me reset password instructions'
+    expect(current_path).to eq(new_user_session_path)
+    open_email(email)
+    current_email.click_link 'Change my password'
+    expect(current_path).to eq(edit_user_password_path)
+    fill_in 'New password', with: 'password2'
+    fill_in 'Confirm new password', with: 'password2'
+    click_button 'Change my password'
+    expect(page).to have_content('Your password has been changed successfully. You are now signed in.')
+    expect(current_path).to eq(root_path)
   end
 end
