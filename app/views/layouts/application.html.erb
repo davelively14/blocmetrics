@@ -14,7 +14,7 @@
 
       <div class="pull-right user-info">
         <% if user_signed_in? %>
-          <span class="navbar-link"><%= current_user_name %></span>
+          <%= link_to current_user_name, edit_user_registration_path, class: 'navbar-link' %>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
         <% else %>
           <%= link_to "Sign in", new_user_session_path, class: 'navbar-link' %>
