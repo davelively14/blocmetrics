@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Authentication', type: :feature do
+  let(:username) { 'new_user' }
   let(:email) { 'new_user@resurgens.io' }
   let(:password) { 'password' }
 
   before do
-    create(:user, email: email, password: password, password_confirmation: password)
+    create(:user, email: email, password: password, password_confirmation: password, username: username)
     clear_emails
   end
 
@@ -32,6 +33,7 @@ RSpec.feature 'Authentication', type: :feature do
   scenario "create new user" do
     visit(root_path)
     click_on 'Sign up'
+    fill_in 'Username', with: 'stan'
     fill_in 'Email', with: 'stan@bloc.io'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -43,6 +45,7 @@ RSpec.feature 'Authentication', type: :feature do
   scenario "cannot create a user with an already existing email" do
     visit(root_path)
     click_on 'Sign up'
+    fill_in 'Username', with: 'jon316'
     fill_in 'Email', with: 'new_user@resurgens.io'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -50,9 +53,21 @@ RSpec.feature 'Authentication', type: :feature do
     expect(page).to have_content('Email has already been taken')
   end
 
+  scenario "cannot create a user with an already existing username" do
+    visit(root_path)
+    click_on 'Sign up'
+    fill_in 'Username', with: 'new_user'
+    fill_in 'Email', with: 'austin316@resurgens.io'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
+    expect(page).to have_content('Username has already been taken')
+  end
+
   scenario "cannot create a user without a valid email" do
     visit(root_path)
     click_on 'Sign up'
+    fill_in 'Username', with: 'jon316'
     fill_in 'Email', with: 'n.com.is.alot'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -60,9 +75,21 @@ RSpec.feature 'Authentication', type: :feature do
     expect(page).to have_content('Email is invalid')
   end
 
+  scenario "cannot create a user without a valid username" do
+    visit(root_path)
+    click_on 'Sign up'
+    fill_in 'Username', with: ''
+    fill_in 'Email', with: 'n@b.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
+    expect(page).to have_content("Username can't be blank")
+  end
+
   scenario "cannot create a user without a valid password" do
     visit(root_path)
     click_on 'Sign up'
+    fill_in 'Username', with: 'billybob'
     fill_in 'Email', with: 'n@bloc.com'
     fill_in 'Password', with: 'pass'
     fill_in 'Password confirmation', with: 'pass'
