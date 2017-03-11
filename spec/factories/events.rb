@@ -1,8 +1,6 @@
 FactoryGirl.define do
-  name_template = Faker::StarWars.character.gsub(/\W/, "")
-
   factory :event do
-    name sequence(:name){|n| "#{name_template}#{name}"}
+    name Faker::StarWars.character.gsub(/\W/, "")
     registered_application
   end
 end
