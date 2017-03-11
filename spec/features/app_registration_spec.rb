@@ -92,6 +92,27 @@ RSpec.feature 'AppRegistration', type: :feature do
     expect(page).to_not have_content(name)
   end
 
+  scenario "register, unregister, and then re-register an app with the same name" do
+    sign_in_user(email, password)
+    create_app(name, url)
+    click_link 'My Apps'
+    click_link 'Unregister'
+    expect(page).to have_content('Apps: 0')
+    create_app(name, url)
+    click_link 'My Apps'
+    expect(page).to have_content(name)
+  end
+
+  scenario "register multiple apps" do
+    sign_in_user(email, password)
+    create_app(name, url)
+    create_app("New App", "http://www.url.com")
+    click_link 'My Apps'
+    expect(page).to have_content(name)
+    expect(page).to have_content('New App')
+    expect(page).to have_content('Apps: 2')
+  end
+
   private
 
   def sign_in_user(email, password)
