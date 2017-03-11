@@ -1,3 +1,13 @@
 == Blocmetrics
 
 More to follow.
+
+To dos:
+
+- ADD: Authorization to redirect users away from unauthorized logins
+  - `:before_action` hook
+- ADD: Add admin functionality
+  - Use `Pundit`
+
+Changelog:
+- NSTR
