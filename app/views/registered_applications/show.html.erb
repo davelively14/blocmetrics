@@ -5,6 +5,7 @@
     <h4><%= @user.username %></h4>
     <h5><%= link_to @app.url, @app.url %></h5>
     <%= link_to "Unregister", registered_application_path(@app), class: 'btn btn-danger', method: :delete, data: {confirm: "Are you sure you want to unregsiter this app?"} %>
+    <%= link_to "Edit", edit_registered_application_path(@app), class: 'btn btn-primary' %>
   </div>
   <div class="col-md-8">
     <p>And some more specific stats.</p>
