@@ -78,6 +78,23 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
     end
   end
 
+  describe "GET edit" do
+    it "returns HTTP success" do
+      get :edit, {id: app.id}
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders #edit template" do
+      get :edit, {id: app.id}
+      expect(response).to render_template(:edit)
+    end
+
+    it "assigns app to @app" do
+      get :edit, {id: app.id}
+      expect(assigns(:app)).to eq(app)
+    end
+  end
+
   describe "DELETE destroy" do
     it "deletes an app" do
       delete :destroy, id: app.id

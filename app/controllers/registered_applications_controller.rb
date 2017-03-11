@@ -28,6 +28,10 @@ class RegisteredApplicationsController < ApplicationController
     end
   end
 
+  def edit
+    @app = RegisteredApplication.find(params[:id])
+  end
+
   def destroy
     @app = RegisteredApplication.find(params[:id])
 
