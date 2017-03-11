@@ -2,12 +2,10 @@
 
 More to follow.
 
-To dos:
-
-- ADD: Authorization to redirect users away from unauthorized logins
-  - `:before_action` hook
+TODOs:
 - ADD: Add admin functionality
   - Use `Pundit`
 
 Changelog:
-- NSTR
+- ADD: Authorization to redirect users away from unauthorized logins
+  - `:before_action` hook on RegisteredApplicationsController

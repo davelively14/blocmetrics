@@ -1,4 +1,6 @@
 class RegisteredApplicationsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @app = RegisteredApplication.find(params[:id])
     @user = User.find(current_user.id)
