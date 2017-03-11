@@ -131,4 +131,13 @@ RSpec.feature 'Authentication', type: :feature do
     expect(page).to have_content('Your account has been updated successfully.')
     expect(page).to have_content('even_newer_user')
   end
+
+  scenario "redirected to login page" do
+    visit(registered_applications_path)
+    expect(current_path).to eq(new_user_session_path)
+    fill_in 'Email', with: email
+    fill_in 'Password', with: password
+    click_button 'Sign in'
+    expect(current_path).to eq(registered_applications_path)
+  end
 end
