@@ -6,7 +6,7 @@ RSpec.describe RegisteredApplication, type: :model do
   let(:url) { 'https://greenbrier.com/'}
   let(:app) { create(:registered_application, name: name, url: url, user_id: user.id) }
 
-  # Shoulda tests for assoications
+  # Shoulda tests for associations
   it { is_expected.to belong_to(:user) }
 
   # Shoulda tests for name
