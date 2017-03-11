@@ -32,6 +32,19 @@ class RegisteredApplicationsController < ApplicationController
     @app = RegisteredApplication.find(params[:id])
   end
 
+  def update
+    @app = RegisteredApplication.find(params[:id])
+    @app.assign_attributes(app_params)
+
+    if @app.save
+      flash[:notice] = "#{@app.name} was updated successfully."
+      redirect_to registered_application_path(@app)
+    else
+      flash.now[:alert] = "There was an error updating the app."
+      render :edit
+    end
+  end
+
   def destroy
     @app = RegisteredApplication.find(params[:id])
 

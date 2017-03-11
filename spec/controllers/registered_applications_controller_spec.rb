@@ -95,6 +95,25 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
     end
   end
 
+  describe "PUT update" do
+    it "updates app with expected attributes" do
+      new_name = Faker::StarWars.character
+      new_url = Faker::Internet.url
+
+      put :update, id: app.id, registered_application: {name: new_name, url: new_url}
+      updated_app = assigns(:app)
+
+      expect(updated_app.id).to eq(app.id)
+      expect(updated_app.name).to eq(new_name)
+      expect(updated_app.url).to eq(new_url)
+    end
+
+    it "redirects to the updated app" do
+      put :update, id: app.id, registered_application: {name: Faker::StarWars.character, url: Faker::Internet.url}
+      expect(response).to redirect_to(registered_application_path)
+    end
+  end
+
   describe "DELETE destroy" do
     it "deletes an app" do
       delete :destroy, id: app.id
