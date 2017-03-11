@@ -1,0 +1,14 @@
+<%= form_for app do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter app name", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: 'form-control', placeholder: "Enger app url" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+    <%= link_to "Cancel", cancel_path, class: 'btn btn-danger' %>
+  </div>
+<% end %>

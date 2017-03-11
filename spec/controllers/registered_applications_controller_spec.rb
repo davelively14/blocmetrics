@@ -63,17 +63,17 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
   describe "POST create" do
     it "increases the number of registered_applications by one" do
       expect{
-        post :create, app: {name: Faker::StarWars.character, url: Faker::Internet.url}
+        post :create, registered_application: {name: Faker::StarWars.character, url: Faker::Internet.url}
       }.to change(RegisteredApplication, :count).by(1)
     end
 
     it "assigns new app to @app" do
-      post :create, app: {name: Faker::StarWars.character, url: Faker::Internet.url}
+      post :create, registered_application: {name: Faker::StarWars.character, url: Faker::Internet.url}
       expect(assigns(:app)).to eq(RegisteredApplication.last)
     end
 
     it "redirects to new app" do
-      post :create, app: {name: Faker::StarWars.character, url: Faker::Internet.url}
+      post :create, registered_application: {name: Faker::StarWars.character, url: Faker::Internet.url}
       expect(response).to redirect_to(registered_application_path(RegisteredApplication.last))
     end
   end

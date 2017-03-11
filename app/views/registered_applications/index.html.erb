@@ -4,7 +4,7 @@
   <div class="col-md-4">
     <h3><%= @user.username %></h3>
     <h3><small>Apps: <%= @apps.count %></small></h3>
-    <%= link_to "Register New App", "#", class: 'btn btn-success' %>
+    <%= link_to "Register New App", new_registered_application_path, class: 'btn btn-success' %>
   </div>
   <div class="col-md-8">
     <table class="table table-hover">
