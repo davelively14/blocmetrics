@@ -1,3 +1,8 @@
+<% if @app.errors.any? %>
+  <% @app.errors.full_messages.each do |error_message| %>
+    <%= error_message if @app.errors.full_messages.first == error_message %> <br />
+  <% end %>
+<% end %>
 <%= form_for app do |f| %>
   <div class="form-group">
     <%= f.label :name %>
