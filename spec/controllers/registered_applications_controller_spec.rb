@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe RegisteredApplicationsController, type: :controller do
   let(:user) { create(:user) }
   let(:app) { create(:registered_application, user: user) }
-  let(:event) { create(:event, registered_application: app) }
 
   before do
     sign_in user
@@ -20,11 +19,10 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       expect(response).to render_template(:show)
     end
 
-    it "assigns app to @app, event to @app.events, and user to @user" do
+    it "assigns app to @app and user to @user" do
       get :show, {id: app.id, user_id: user.id}
       expect(assigns[:app]).to eq(app)
       expect(assigns[:user]).to eq(user)
-      expect(assigns[:app].events).to eq([event])
     end
   end
 
