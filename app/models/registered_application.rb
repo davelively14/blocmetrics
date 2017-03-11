@@ -1,5 +1,6 @@
 class RegisteredApplication < ActiveRecord::Base
   belongs_to :user
+  has_many :events
 
   validates :name, length: {minimum: 3, maximum: 30}, presence: true, uniqueness: true
   validates :url, length: {minimum: 3}, presence: true

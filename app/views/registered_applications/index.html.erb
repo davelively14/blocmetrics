@@ -10,17 +10,19 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th width="70%">App Title</th>
-          <th width="30%">Actions</th>
+          <th width="50%">App Title</th>
+          <th width="15%">Events</th>
+          <th width="35%">Actions</th>
         </tr>
       </thead>
       <tbody>
         <% @apps.each do |app| %>
           <tr>
             <td><%= link_to app.name, registered_application_path(app) %></td>
+            <td><%= app.events.count %></td>
             <td>
               <%= link_to "Unregister", registered_application_path(app), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure you want to unregsiter this app?"} %>
-               | <%= link_to "Edit", edit_registered_application_path(app), class: 'btn btn-primary btn-xs' %>
+              <%= link_to "Edit", edit_registered_application_path(app), class: 'btn btn-primary btn-xs' %>
              </td>
           </tr>
         <% end %>

@@ -13,6 +13,19 @@ user = User.create!(
   )
 end
 
+apps = RegisteredApplication.all
+
+example_cats = []
+5.times {example_cats << Faker::StarWars.character.gsub(/\W/, "")}
+
+100.times do
+  Event.create!(
+    name: example_cats.sample,
+    registered_application: apps.sample
+  )
+end
+
 puts "Seed complete"
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} apps created"
+puts "#{Event.count} events created"

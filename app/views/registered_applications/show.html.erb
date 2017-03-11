@@ -8,6 +8,21 @@
     <%= link_to "Edit", edit_registered_application_path(@app), class: 'btn btn-primary' %>
   </div>
   <div class="col-md-8">
-    <p>And some more specific stats.</p>
+    <table class="table table-hovers">
+      <thead>
+        <tr>
+          <th width="75%">Event Type</th>
+          <th width="25%">#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% event_summary(@app.events).each do |event, count| %>
+          <tr>
+            <td><%= event %></td>
+            <td><%= count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

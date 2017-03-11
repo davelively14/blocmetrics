@@ -8,6 +8,7 @@ RSpec.describe RegisteredApplication, type: :model do
 
   # Shoulda tests for associations
   it { is_expected.to belong_to(:user) }
+  it { is_expected.to have_many(:events) }
 
   # Shoulda tests for name
   it { is_expected.to validate_presence_of(:name) }
