@@ -23,7 +23,7 @@ class RegisteredApplicationsController < ApplicationController
       flash[:notice] = "Registered new application."
       redirect_to @app
     else
-      flash.now[:alert] = "There was an error registering teh app."
+      flash.now[:alert] = "There was an error registering the app."
       render :new
     end
   end
