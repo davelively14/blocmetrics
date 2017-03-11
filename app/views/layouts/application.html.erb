@@ -11,6 +11,9 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%= link_to "Home", root_path %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "My Apps", registered_applications_path %></li>
+      <% end %>
 
       <div class="pull-right user-info">
         <% if user_signed_in? %>

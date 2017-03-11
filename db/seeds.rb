@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.create!(
+  username: "dlively",
+  email: "dlively@resurgens.io",
+  password: "password",
+  password_confirmation: "password"
+)
+
+5.times do
+  RegisteredApplication.create!(
+    name: Faker::GameOfThrones.character.gsub(/\W/, ""),
+    url: Faker::Internet.url,
+    user_id: user.id
+  )
+end
+
+puts "Seed complete"
+puts "#{User.count} users created"
+puts "#{RegisteredApplication.count} apps created"

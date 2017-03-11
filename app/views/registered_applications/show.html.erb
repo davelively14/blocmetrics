@@ -1,1 +1,11 @@
-<h1>Show App</h1>
+<h1><%= @app.name %></h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <h4><%= @user.username %></h4>
+    <h5><%= link_to @app.url, @app.url %></h5>
+  </div>
+  <div class="col-md-8">
+    <p>And some more specific stats.</p>
+  </div>
+</div>
