@@ -26,6 +26,18 @@ class RegisteredApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    @app = RegisteredApplication.find(params[:id])
+
+    if @app.destroy
+      flash[:notice] = "#{@app.name} was unregistered successfully."
+      redirect_to registered_applications_path
+    else
+      flash.now[:notice] = "There was an error unregistering the app."
+      render :index
+    end
+  end
+
   private
 
   def app_params

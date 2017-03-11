@@ -18,7 +18,10 @@
         <% @apps.each do |app| %>
           <tr>
             <td><%= link_to app.name, registered_application_path(app) %></td>
-            <td>delete | edit</td>
+            <td>
+              <%= link_to "Unregister", registered_application_path(app), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure you want to unregsiter this app?"} %>
+               | edit
+             </td>
           </tr>
         <% end %>
       </tbody>

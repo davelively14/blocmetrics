@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :user, only: [:edit]
-  resources :registered_applications, only: [:show, :index, :new, :create]
+  resources :registered_applications, only: [:show, :index, :new, :create, :destroy]
 end

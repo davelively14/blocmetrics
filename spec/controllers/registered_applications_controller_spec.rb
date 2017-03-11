@@ -77,4 +77,16 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       expect(response).to redirect_to(registered_application_path(RegisteredApplication.last))
     end
   end
+
+  describe "DELETE destroy" do
+    it "deletes an app" do
+      delete :destroy, id: app.id
+      expect(RegisteredApplication.where({id: app.id}).size).to eq(0)
+    end
+
+    it "redirects to app#index after deletion" do
+      delete :destroy, id: app.id
+      expect(response).to redirect_to(registered_applications_path)
+    end
+  end
 end
