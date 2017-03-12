@@ -21,6 +21,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'devise', '~> 4.1.0'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   gem 'byebug'

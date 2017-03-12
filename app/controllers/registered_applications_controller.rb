@@ -8,7 +8,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def index
-    @apps = RegisteredApplication.where("user_id == ?", current_user.id)
+    @apps = RegisteredApplication.where("user_id = ?", current_user.id)
     @user = User.find(current_user.id)
   end
 

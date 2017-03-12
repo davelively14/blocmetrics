@@ -25,6 +25,18 @@ example_cats = []
   )
 end
 
+RegisteredApplication.create!(
+  name: "Local Host 4000",
+  url: "http://localhost:4000",
+  user_id: user.id
+)
+
+RegisteredApplication.create!(
+  name: "Checkpoint 6 Test",
+  url: "http://registered_application.com",
+  user_id: user.id
+)
+
 puts "Seed complete"
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} apps created"
