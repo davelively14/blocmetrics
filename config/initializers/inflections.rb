@@ -10,7 +10,8 @@
 #   inflect.uncountable %w( fish sheep )
 # end
 
-# These inflection rules are supported but not enabled by default:
-# ActiveSupport::Inflector.inflections(:en) do |inflect|
-#   inflect.acronym 'RESTful'
-# end
+# Allows us to use API as the namespace, instead of the non-acronymed Api 
+# namespace.
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'API'
+end
