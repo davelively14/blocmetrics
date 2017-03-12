@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # Matches an HTTP options request, which is the CORS way of checking if
   # a cross domain request will be permitted, and calls the preflight method
   # in the EventsController.
-  match '/events', to: 'events#preflight', via: [:options]
+  match 'api/events', to: 'api/events#preflight', via: [:options]
 end
