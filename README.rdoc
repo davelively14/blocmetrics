@@ -1,4 +1,4 @@
-== Blocmetrics
+# Blocmetrics
 
 [![Build Status](https://travis-ci.org/davelively14/blocmetrics.svg?branch=master)](https://travis-ci.org/davelively14/blocmetrics)
 
