@@ -1,8 +1,9 @@
 # Blocmetrics
 
-[![Build Status](https://travis-ci.org/davelively14/blocmetrics.svg?branch=master.png)](https://travis-ci.org/davelively14/blocmetrics)
+[![Build Status](https://travis-ci.org/davelively14/blocmetrics.svg?branch=master)](https://travis-ci.org/davelively14/blocmetrics)
 
 How to set it up:
+
 
 ```javascript
 var blocmetrics = {};
