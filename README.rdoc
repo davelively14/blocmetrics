@@ -1,6 +1,6 @@
 == Blocmetrics
 
-https://travis-ci.org/davelively14/blocmetrics.svg?branch=master
+![Status](https://travis-ci.org/davelively14/blocmetrics.svg?branch=master)
 
 How to set it up:
 
