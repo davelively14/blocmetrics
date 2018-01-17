@@ -23,6 +23,7 @@ gem 'bootstrap-sass'
 gem 'devise', '~> 4.1.0'
 gem 'chartkick'
 gem 'groupdate'
+gem 'coveralls', require: false
 
 group :development, :test do
   gem 'byebug'
