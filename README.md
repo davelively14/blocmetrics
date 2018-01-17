@@ -1,6 +1,6 @@
 # Blocmetrics
 
-[![Build Status](https://travis-ci.org/davelively14/blocmetrics.svg?branch=master)](https://travis-ci.org/davelively14/blocmetrics)
+[![Build Status](https://travis-ci.org/davelively14/blocmetrics.svg?branch=master)](https://travis-ci.org/davelively14/blocmetrics)[![Coverage Status](https://coveralls.io/repos/github/davelively14/blocipedia/badge.svg?branch=master)](https://coveralls.io/github/davelively14/blocipedia?branch=master)
 
 How to set it up:
 
